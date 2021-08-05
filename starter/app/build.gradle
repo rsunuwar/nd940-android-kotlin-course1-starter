@@ -2,9 +2,15 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
+apply plugin: "androidx.navigation.safeargs.kotlin"
+
 
 android {
     compileSdkVersion 30
+    buildFeatures {
+        dataBinding true
+        viewBinding true
+    }
     buildToolsVersion "29.0.1"
     defaultConfig {
         applicationId "com.udacity.shoestore"
@@ -41,4 +47,8 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+
+    // Navigation
+    implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
+    implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
 }

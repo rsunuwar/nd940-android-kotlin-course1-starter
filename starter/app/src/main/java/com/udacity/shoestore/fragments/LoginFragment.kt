@@ -1,6 +1,8 @@
 package com.udacity.shoestore.fragments
 
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -24,12 +26,35 @@ class LoginFragment : Fragment() {
         val binding: FragmentLoginBinding =
             DataBindingUtil.inflate(inflater, R.layout.fragment_login, container, false)
 
-        binding.buttonLogin.setOnClickListener {view ->
-            view.findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToWelcomeFragment())
+        // textWatcher to enable buttons
+        val textWatcher = object : TextWatcher {
+
+            override fun afterTextChanged(p0: Editable?) {
+            }
+
+            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+            }
+
+            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+                val enableButton = binding.textEmail.text.toString().trim().isNotEmpty() &&
+                        binding.textPassword.text.toString().trim().isNotEmpty()
+
+                binding.buttonLogin.isEnabled = enableButton
+                binding.buttonSignup.isEnabled = enableButton
+            }
         }
 
-        binding.buttonSignup.setOnClickListener {view ->
-            view.findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToWelcomeFragment())
+        binding.textEmail.addTextChangedListener(textWatcher)
+        binding.textPassword.addTextChangedListener(textWatcher)
+
+        // navigation
+        binding.buttonLogin.setOnClickListener { view ->
+            view.findNavController()
+                .navigate(LoginFragmentDirections.actionLoginFragmentToWelcomeFragment())
+        }
+        binding.buttonSignup.setOnClickListener { view ->
+            view.findNavController()
+                .navigate(LoginFragmentDirections.actionLoginFragmentToWelcomeFragment())
         }
 
         return binding.root

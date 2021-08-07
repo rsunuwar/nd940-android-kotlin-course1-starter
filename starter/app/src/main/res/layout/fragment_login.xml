@@ -10,66 +10,72 @@
         android:layout_height="match_parent">
 
         <TextView
-            android:id="@+id/emailLabel"
+            android:id="@+id/label_email"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="55dp"
             android:layout_marginTop="250dp"
-            android:text="Email:"
+            android:text="@string/email"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <EditText
-            android:id="@+id/emailText"
+            android:id="@+id/text_email"
             android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="50dp"
             android:layout_marginTop="5dp"
             android:ems="10"
-            android:inputType="textPersonName"
+            android:labelFor="@id/text_email"
+            android:inputType="textEmailAddress"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/emailLabel" />
+            app:layout_constraintTop_toBottomOf="@+id/label_email"
+            android:importantForAutofill="no" />
 
         <TextView
-            android:id="@+id/passwordLabel"
+            android:id="@+id/label_password"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="55dp"
             android:layout_marginTop="30dp"
-            android:text="Password"
+            android:text="@string/password"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/emailText" />
+            app:layout_constraintTop_toBottomOf="@+id/text_email" />
 
         <EditText
-            android:id="@+id/passwordText"
+            android:id="@+id/text_password"
             android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="50dp"
             android:layout_marginTop="5dp"
             android:ems="10"
+            android:labelFor="@id/text_password"
             android:inputType="textPassword"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/passwordLabel" />
+            app:layout_constraintTop_toBottomOf="@+id/label_password"
+            android:importantForAutofill="no" />
 
         <Button
-            android:id="@+id/loginButton"
+            android:id="@+id/button_login"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="50dp"
             android:layout_marginTop="40dp"
-            android:text="Log in"
+            android:enabled="false"
+            android:text="@string/log_in"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/passwordText" />
+            app:layout_constraintTop_toBottomOf="@+id/text_password" />
 
         <Button
-            android:id="@+id/signUpButton"
+            android:id="@+id/button_signup"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="40dp"
             android:layout_marginTop="40dp"
-            android:text="Sign up"
-            app:layout_constraintStart_toEndOf="@+id/loginButton"
-            app:layout_constraintTop_toBottomOf="@+id/passwordText" />
+            android:enabled="false"
+            android:text="@string/sign_up"
+            app:layout_constraintStart_toEndOf="@+id/button_login"
+            app:layout_constraintTop_toBottomOf="@+id/text_password" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

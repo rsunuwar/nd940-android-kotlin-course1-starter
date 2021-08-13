@@ -13,4 +13,5 @@
     <string name="instruction2">You can buy shoes from the independent shoe makers in this store. You can also request customizations for the shoe and we will confirm with the shoe maker and notify you. Customize your shoes at the best price value. \nClick begin to continue.</string>
     <string name="begin">Begin</string>
     <string name="shoes_image_desc">Shoes image</string>
+    <string name="log_out">Log Out</string>
 </resources>

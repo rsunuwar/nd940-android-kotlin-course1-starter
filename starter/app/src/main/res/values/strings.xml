@@ -16,4 +16,5 @@
     <string name="log_out">Log Out</string>
     <string name="save">Save</string>
     <string name="shoe_image_content">shoeimage</string>
+    <string name="shoe_desc">shoedesc</string>
 </resources>

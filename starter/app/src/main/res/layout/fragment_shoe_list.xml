@@ -4,24 +4,39 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".fragments.ShoeListFragment">
 
-
-    <ScrollView
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <LinearLayout
+        <ScrollView
+            android:id="@+id/scrollview"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical" >
+            android:layout_height="match_parent"
+            tools:layout_editor_absoluteX="69dp"
+            tools:layout_editor_absoluteY="0dp">
 
-            <com.google.android.material.floatingactionbutton.FloatingActionButton
-                android:id="@+id/floatingActionButton"
+            <LinearLayout
+                android:id="@+id/shoeItems"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:clickable="true"
-                android:src="@drawable/nike_shoe" />
+                android:divider="#6C6C6C"
+                android:orientation="vertical"
+                android:showDividers="middle" />
+        </ScrollView>
 
-        </LinearLayout>
-    </ScrollView>
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/floatingActionButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="500dp"
+            android:layout_marginEnd="6dp"
+            android:clickable="true"
+            android:contentDescription="@string/shoe_desc"
+            android:focusable="true"
+            android:src="@drawable/ic_add"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </layout>

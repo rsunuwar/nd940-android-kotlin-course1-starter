@@ -8,49 +8,87 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="380dp"
+            android:layout_height="197dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="10dp"
+            android:contentDescription="@string/shoe_image_content"
+            android:src="@drawable/nike_shoe"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
         <TextView
             android:id="@+id/label_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
+            android:layout_marginStart="10dp"
             android:layout_marginEnd="5dp"
             android:layout_marginBottom="5dp"
-            android:text="Name:"
+            android:text="@string/name"
             app:layout_constraintBottom_toBottomOf="@+id/textView_name"
             app:layout_constraintEnd_toStartOf="@+id/textView_name"
-            app:layout_constraintStart_toEndOf="@+id/imageView" />
+            app:layout_constraintStart_toStartOf="parent" />
 
         <EditText
             android:id="@+id/textView_name"
-            android:layout_width="100dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="5dp"
-            android:layout_marginTop="41dp"
+            android:layout_marginTop="40dp"
             android:ems="10"
             android:importantForAutofill="no"
             android:inputType="text"
             app:layout_constraintStart_toEndOf="@+id/label_name"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
         <TextView
             android:id="@+id/label_company"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
-            android:text="Company:"
+            android:layout_marginBottom="1dp"
+            android:text="@string/company"
             app:layout_constraintBottom_toBottomOf="@+id/textView_company"
             app:layout_constraintStart_toStartOf="@+id/label_name"
             app:layout_constraintTop_toBottomOf="@+id/textView_name" />
 
         <EditText
             android:id="@+id/textView_company"
-            android:layout_width="100dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="5dp"
-            android:layout_marginTop="6dp"
+            android:layout_marginTop="2dp"
             android:ems="10"
+            android:importantForAutofill="no"
+            android:inputType="text"
             app:layout_constraintStart_toEndOf="@+id/label_company"
             app:layout_constraintTop_toBottomOf="@+id/textView_name" />
+
+        <TextView
+            android:id="@+id/label_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:text="@string/price"
+            app:layout_constraintBottom_toBottomOf="@+id/textView_price"
+            app:layout_constraintStart_toStartOf="@+id/label_company"
+            app:layout_constraintTop_toBottomOf="@+id/label_company" />
+
+        <EditText
+            android:id="@+id/textView_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="4dp"
+            android:ems="10"
+            android:importantForAutofill="no"
+            android:inputType="numberDecimal"
+            app:layout_constraintStart_toEndOf="@+id/label_price"
+            app:layout_constraintTop_toBottomOf="@+id/textView_company" />
 
         <TextView
             android:id="@+id/label_size"
@@ -58,16 +96,16 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
             android:layout_marginEnd="5dp"
-            android:text="Size:"
+            android:text="@string/size"
             app:layout_constraintEnd_toStartOf="@+id/spinner_sizes"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/label_company"
-            app:layout_constraintTop_toBottomOf="@+id/label_company" />
+            app:layout_constraintTop_toBottomOf="@+id/label_price" />
 
         <Spinner
             android:id="@+id/spinner_sizes"
-            android:layout_width="50dp"
-            android:layout_height="25dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginStart="5dp"
             app:layout_constraintBottom_toBottomOf="@+id/label_size"
             app:layout_constraintStart_toEndOf="@+id/label_size" />
@@ -78,52 +116,47 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
             android:layout_marginEnd="5dp"
-            android:text="Description:"
+            android:text="@string/description"
+            app:layout_constraintBottom_toBottomOf="@+id/textView_description"
             app:layout_constraintEnd_toStartOf="@+id/textView_description"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/label_size"
-            app:layout_constraintTop_toBottomOf="@+id/label_size" />
+            app:layout_constraintTop_toBottomOf="@+id/spinner_sizes" />
 
         <EditText
             android:id="@+id/textView_description"
-            android:layout_width="100dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="5dp"
+            android:layout_marginTop="4dp"
             android:ems="10"
+            android:importantForAutofill="no"
             android:inputType="text"
-            android:text="desc"
-            app:layout_constraintBottom_toBottomOf="@+id/label_description"
-            app:layout_constraintStart_toEndOf="@+id/spinner_sizes" />
+            android:scrollbars = "vertical"
+            app:layout_constraintStart_toEndOf="@+id/label_description"
+            app:layout_constraintTop_toBottomOf="@+id/spinner_sizes" />
 
         <Button
             android:id="@+id/button_save"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="70dp"
+            android:layout_marginStart="55dp"
             android:layout_marginTop="60dp"
             android:text="@string/save"
+            app:layout_constraintBottom_toBottomOf="@+id/button_cancel"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView" />
+            app:layout_constraintTop_toBottomOf="@+id/label_description" />
 
         <Button
             android:id="@+id/button_cancel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="70dp"
+            android:layout_marginTop="60dp"
+            android:layout_marginEnd="55dp"
             android:text="@android:string/cancel"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/button_save" />
+            app:layout_constraintTop_toBottomOf="@+id/label_description" />
 
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="200dp"
-            android:layout_height="200dp"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="30dp"
-            android:contentDescription="@string/shoe_image_content"
-            android:src="@drawable/nike_shoe"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </layout>

@@ -17,4 +17,9 @@
     <string name="save">Save</string>
     <string name="shoe_image_content">shoeimage</string>
     <string name="shoe_desc">shoedesc</string>
+    <string name="name">Name:</string>
+    <string name="company">Company:</string>
+    <string name="price">Price:</string>
+    <string name="description">Description:</string>
+    <string name="size">Size:</string>
 </resources>

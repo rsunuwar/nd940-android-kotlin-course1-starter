@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.LinearLayout
+import android.widget.TextView
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
@@ -36,19 +37,20 @@ class ShoeListFragment : Fragment() {
 
         shoeListViewModel = ViewModelProvider(this).get(ShoeListViewModel::class.java)
 
-        val layoutParams = LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, 200)
-        layoutParams.setMargins(15, 40, 32, 40)
+        val layoutParams = LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 100)
+        layoutParams.setMargins(30, 10, 15, 10)
 
         // add all shoes
         for (shoe in shoeListViewModel.shoeList.value!!) {
 
-            val imageView = ImageView(context)
-            imageView.setImageResource(shoe.images)
-            imageView.layoutParams = layoutParams
-            imageView.setOnClickListener {
+            val textView = TextView(context)
+            textView.layoutParams = layoutParams
+            textView.text = shoe.name
+            textView.textSize = 20.0F
+            textView.setOnClickListener {
                 findNavController().navigate(ShoeListFragmentDirections.actionShoeListFragmentToShoeDetailFragment())
             }
-            binding.shoeItems.addView(imageView)
+            binding.shoeItems.addView(textView)
         }
 
         binding.floatingActionButton.setOnClickListener {

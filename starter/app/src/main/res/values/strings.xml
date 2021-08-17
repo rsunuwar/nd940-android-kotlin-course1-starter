@@ -15,7 +15,7 @@
     <string name="shoes_image_desc">Shoes image</string>
     <string name="log_out">Log Out</string>
     <string name="save">Save</string>
-    <string name="shoe_image_content">shoeimage</string>
+    <string name="add_shoe_image">Add Image</string>
     <string name="shoe_desc">shoedesc</string>
     <string name="name">Name:</string>
     <string name="company">Company:</string>

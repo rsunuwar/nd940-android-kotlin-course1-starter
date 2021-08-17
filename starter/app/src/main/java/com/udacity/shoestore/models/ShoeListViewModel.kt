@@ -11,7 +11,7 @@ class ShoeListViewModel: ViewModel() {
     val shoeList: LiveData<List<Shoe>>
         get() = _shoeList
 
-    private val shoeSizes = listOf(5.9, 5.5, 6.0, 6.5, 7.0, 7.5, 8.0, 9.9, 11.0)
+    private val shoeSizes = listOf(5.5, 6.0, 6.5, 7.0, 7.5, 8.0, 9.0, 11.0)
 
     val allShoes = listOf(
         Shoe("Chuck Taylor", shoeSizes, "Converse", 59.99,"Ankle length Chuck Taylor Converse shoes.", R.drawable.chucktaylor),

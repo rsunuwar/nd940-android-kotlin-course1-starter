@@ -15,8 +15,8 @@
             android:layout_marginStart="10dp"
             android:layout_marginTop="30dp"
             android:layout_marginEnd="10dp"
-            android:contentDescription="@string/shoe_image_content"
-            android:src="@drawable/nike_shoe"
+            android:contentDescription="@string/add_shoe_image"
+            android:src="@drawable/ic_add"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -125,14 +125,14 @@
 
         <EditText
             android:id="@+id/textView_description"
-            android:layout_width="wrap_content"
+            android:layout_width="304dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="5dp"
             android:layout_marginTop="4dp"
             android:ems="10"
             android:importantForAutofill="no"
             android:inputType="text"
-            android:scrollbars = "vertical"
+            android:scrollbars="vertical"
             app:layout_constraintStart_toEndOf="@+id/label_description"
             app:layout_constraintTop_toBottomOf="@+id/spinner_sizes" />
 

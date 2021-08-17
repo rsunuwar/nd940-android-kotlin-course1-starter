@@ -7,7 +7,6 @@ import android.view.MenuInflater
 import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.databinding.DataBindingUtil
@@ -48,13 +47,23 @@ class ShoeListFragment : Fragment() {
             textView.text = shoe.name
             textView.textSize = 20.0F
             textView.setOnClickListener {
-                findNavController().navigate(ShoeListFragmentDirections.actionShoeListFragmentToShoeDetailFragment())
+                findNavController().navigate(
+                    ShoeListFragmentDirections.actionShoeListFragmentToShoeDetailFragment(
+                        isNew = false,
+                        shoe = shoe
+                    )
+                )
             }
             binding.shoeItems.addView(textView)
         }
 
         binding.floatingActionButton.setOnClickListener {
-            findNavController().navigate(ShoeListFragmentDirections.actionShoeListFragmentToShoeDetailFragment())
+            findNavController().navigate(
+                ShoeListFragmentDirections.actionShoeListFragmentToShoeDetailFragment(
+                    isNew = true,
+                    shoe = null
+                )
+            )
         }
 
         setHasOptionsMenu(true)

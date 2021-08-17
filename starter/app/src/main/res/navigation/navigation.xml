@@ -49,5 +49,13 @@
         <action
             android:id="@+id/action_shoeDetailFragment_to_shoeListFragment"
             app:destination="@id/shoeListFragment" />
+        <argument
+            android:name="isNew"
+            app:argType="boolean"
+            android:defaultValue="false" />
+        <argument
+            android:name="shoe"
+            app:argType="com.udacity.shoestore.models.Shoe"
+            app:nullable="true" />
     </fragment>
 </navigation>

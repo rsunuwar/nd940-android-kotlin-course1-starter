@@ -3,6 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".fragments.ShoeDetailFragment">
+    
+    <data>
+        <variable
+            name="shoe"
+            type="com.udacity.shoestore.models.Shoe" />
+    </data>
+
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -42,6 +49,7 @@
             android:ems="10"
             android:importantForAutofill="no"
             android:inputType="text"
+            android:text="@{shoe.name}"
             app:layout_constraintStart_toEndOf="@+id/label_name"
             app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
@@ -65,6 +73,7 @@
             android:ems="10"
             android:importantForAutofill="no"
             android:inputType="text"
+            android:text="@{shoe.company}"
             app:layout_constraintStart_toEndOf="@+id/label_company"
             app:layout_constraintTop_toBottomOf="@+id/textView_name" />
 
@@ -87,6 +96,7 @@
             android:ems="10"
             android:importantForAutofill="no"
             android:inputType="numberDecimal"
+            android:text="@{ String.valueOf(shoe.price) }"
             app:layout_constraintStart_toEndOf="@+id/label_price"
             app:layout_constraintTop_toBottomOf="@+id/textView_company" />
 
@@ -95,18 +105,18 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
-            android:layout_marginEnd="5dp"
             android:text="@string/size"
-            app:layout_constraintEnd_toStartOf="@+id/spinner_sizes"
-            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/label_company"
             app:layout_constraintTop_toBottomOf="@+id/label_price" />
 
-        <Spinner
-            android:id="@+id/spinner_sizes"
+        <EditText
+            android:id="@+id/textView_size"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="5dp"
+            android:ems="10"
+            android:inputType="numberDecimal"
+            android:text="@{ String.valueOf(shoe.size) }"
             app:layout_constraintBottom_toBottomOf="@+id/label_size"
             app:layout_constraintStart_toEndOf="@+id/label_size" />
 
@@ -114,18 +124,16 @@
             android:id="@+id/label_description"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
             android:layout_marginEnd="5dp"
             android:text="@string/description"
             app:layout_constraintBottom_toBottomOf="@+id/textView_description"
             app:layout_constraintEnd_toStartOf="@+id/textView_description"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/label_size"
-            app:layout_constraintTop_toBottomOf="@+id/spinner_sizes" />
+            app:layout_constraintStart_toStartOf="@+id/label_size" />
 
         <EditText
             android:id="@+id/textView_description"
-            android:layout_width="304dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="5dp"
             android:layout_marginTop="4dp"
@@ -133,8 +141,9 @@
             android:importantForAutofill="no"
             android:inputType="text"
             android:scrollbars="vertical"
+            android:text="@{shoe.description}"
             app:layout_constraintStart_toEndOf="@+id/label_description"
-            app:layout_constraintTop_toBottomOf="@+id/spinner_sizes" />
+            app:layout_constraintTop_toBottomOf="@+id/textView_size" />
 
         <Button
             android:id="@+id/button_save"

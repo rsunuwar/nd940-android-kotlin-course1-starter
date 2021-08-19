@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<!-- layout is used for data binding. Then drawerLayout and Linear layout as it's only contains the navigation fragment.-->
+<!-- layout is used for data binding. Then drawerLayout and Linear layout as it only contains the navigation fragment.-->
 <layout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -17,6 +17,7 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
+            <!-- use FragmentContainerView as fragment is deprecated.-->
         <fragment
             android:id="@+id/myNavHostFragment"
             android:name="androidx.navigation.fragment.NavHostFragment"
@@ -24,6 +25,7 @@
             android:layout_height="match_parent"
             app:defaultNavHost="true"
             app:navGraph="@navigation/navigation" />
+
         </LinearLayout>
 
     </androidx.drawerlayout.widget.DrawerLayout>

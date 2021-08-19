@@ -68,6 +68,16 @@ class ShoeListFragment : Fragment() {
             }
         })
 
+        /**
+         * Code review suggestion:-
+         *  you can add some dynamic shoe images in future to enhance the user experience.
+         *  To show Images, I would recommend you to use either of the following libraries:
+
+        Coil -> this is the latest library with complete Kotlin support along with coroutines support
+        Glide -> this is the age old library which is the most recommended for larger projects as its evolved very over the years
+         *
+         */
+
         setHasOptionsMenu(true)
         return binding.root
     }

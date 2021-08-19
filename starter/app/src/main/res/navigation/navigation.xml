@@ -12,7 +12,8 @@
         tools:layout="@layout/fragment_login" >
         <action
             android:id="@+id/action_loginFragment_to_welcomeFragment"
-            app:destination="@id/welcomeFragment" />
+            app:destination="@id/welcomeFragment"
+            app:enterAnim="@anim/slide_in_right" />
     </fragment>
     <fragment
         android:id="@+id/welcomeFragment"
@@ -22,6 +23,7 @@
         <action
             android:id="@+id/action_welcomeFragment_to_instructionFragment"
             app:destination="@id/instructionFragment"
+            app:enterAnim="@anim/slide_in_right"
             app:popUpTo="@id/loginFragment" />
     </fragment>
     <fragment
@@ -32,6 +34,7 @@
         <action
             android:id="@+id/action_instructionFragment_to_shoeListFragment"
             app:destination="@id/shoeListFragment"
+            app:enterAnim="@anim/slide_in_right"
             app:popUpTo="@id/loginFragment" />
     </fragment>
     <fragment
@@ -42,6 +45,7 @@
         <action
             android:id="@+id/action_shoeListFragment_to_shoeDetailFragment"
             app:destination="@id/shoeDetailFragment"
+            app:enterAnim="@anim/slide_in_right"
             app:popUpToInclusive="false" />
     </fragment>
     <fragment
@@ -52,6 +56,7 @@
         <action
             android:id="@+id/action_shoeDetailFragment_to_shoeListFragment"
             app:destination="@id/shoeListFragment"
+            app:enterAnim="@anim/slide_out_right"
             app:popUpTo="@id/loginFragment" />
         <argument
             android:name="isNew"

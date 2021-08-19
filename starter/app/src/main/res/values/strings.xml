@@ -1,22 +1,21 @@
 <resources>
     <string name="app_name">Shoe Store</string>
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="welcome_image">Welcome Image</string>
-    <string name="welcome_text">Welcome to our Shoe Store!!!</string>
+    <string name="welcome_text">Welcome to the Shoe Store!!!</string>
     <string name="continue_text">Continue</string>
-    <string name="detail_text">This is small independent shoe store.</string>
+    <string name="detail_text">This is a small independent shoe store.</string>
     <string name="email">Email:</string>
     <string name="password">Password</string>
     <string name="log_in">Log in</string>
     <string name="sign_up">Sign up</string>
-    <string name="instruction1">The available shoes in our store are listed next. You can select them to view the details.</string>
-    <string name="instruction2">You can also add a new shoe by clicking \'+\' and provide details. Clicking save will save your entered shoe in our database.\n\nClick begin to continue.</string>
+    <string name="instruction1">All shoes available in the store are listed next. Select them to view the details.</string>
+    <string name="instruction2">To add a new shoe click \'+\' and provide at least name, price and size. Then click save to add to the inventory.\n\nClick begin to continue.</string>
     <string name="begin">Begin</string>
     <string name="shoes_image_desc">Shoes image</string>
     <string name="log_out">Log Out</string>
     <string name="save">Save</string>
     <string name="add_shoe_image">Add Image</string>
-    <string name="shoe_desc">shoedesc</string>
+    <string name="add_shoe">Add Shoe</string>
     <string name="name">Name:</string>
     <string name="company">Company:</string>
     <string name="price">Price:</string>

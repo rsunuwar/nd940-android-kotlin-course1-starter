@@ -37,7 +37,7 @@ class ShoeListFragment : Fragment() {
 
         //shoeListViewModel = ViewModelProvider(this).get(ShoeListViewModel::class.java)
 
-        val layoutParams = LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 100)
+        val layoutParams = LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
         layoutParams.setMargins(30, 10, 15, 10)
 
         binding.floatingActionButton.setOnClickListener {

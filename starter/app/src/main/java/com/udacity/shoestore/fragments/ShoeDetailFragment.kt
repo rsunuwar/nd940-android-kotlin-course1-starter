@@ -1,6 +1,8 @@
 package com.udacity.shoestore.fragments
 
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -20,14 +22,15 @@ import com.udacity.shoestore.models.ShoeListViewModel
 class ShoeDetailFragment : Fragment() {
 
     private lateinit var shoeListViewModel: ShoeListViewModel
+    private lateinit var binding: FragmentShoeDetailBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
 
-        val binding: FragmentShoeDetailBinding =
-            DataBindingUtil.inflate(inflater, R.layout.fragment_shoe_detail, container, false)
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_shoe_detail, container, false)
+        addTextWatcher()
 
         // set arguments to the view
         val arguments = ShoeDetailFragmentArgs.fromBundle(requireArguments())
@@ -37,11 +40,10 @@ class ShoeDetailFragment : Fragment() {
             arguments.shoe?.let { shoe ->
                 binding.shoe = shoe
                 binding.imageView.setImageResource(shoe.image)
+                binding.textViewPrice.setText("$${shoe.price}")
+                binding.textViewSize.setText(shoe.size.toString())
             }
             binding.buttonSave.text = "OK"
-        } else {
-            binding.textViewPrice.setText("")
-            binding.textViewSize.setText("")
         }
 
         shoeListViewModel = ViewModelProvider(requireActivity()).get(ShoeListViewModel::class.java)
@@ -67,5 +69,30 @@ class ShoeDetailFragment : Fragment() {
         }
 
         return binding.root
+    }
+
+    private fun addTextWatcher() {
+
+        // textWatcher to enable buttons
+        val textWatcher = object : TextWatcher {
+
+            override fun afterTextChanged(p0: Editable?) {
+            }
+
+            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+            }
+
+            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+                val enableButton = binding.textViewName.text.toString().trim().isNotEmpty() &&
+                        binding.textViewPrice.text.toString().trim().isNotEmpty() &&
+                        binding.textViewSize.text.toString().trim().isNotEmpty()
+
+                binding.buttonSave.isEnabled = enableButton
+            }
+        }
+
+        binding.textViewName.addTextChangedListener(textWatcher)
+        binding.textViewPrice.addTextChangedListener(textWatcher)
+        binding.textViewSize.addTextChangedListener(textWatcher)
     }
 }

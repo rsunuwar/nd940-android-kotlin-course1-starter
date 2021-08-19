@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- layout is used for databinding. Then constraintLayout is used to add scrollview and button with some arrangement. LinearLayout is used within constraintLayout as the items in the view is added from code. -->
+
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"

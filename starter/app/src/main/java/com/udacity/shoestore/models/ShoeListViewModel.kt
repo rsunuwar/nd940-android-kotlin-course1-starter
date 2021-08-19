@@ -11,7 +11,7 @@ class ShoeListViewModel: ViewModel() {
     val shoeList: LiveData<List<Shoe>>
         get() = _shoeList
 
-    private val allShoes = listOf(
+    private val allShoes = mutableListOf(
         Shoe("Chuck Taylor", 5.5, "Converse", 59.99,"Ankle length Chuck Taylor Converse shoes.", R.drawable.chucktaylor),
         Shoe("Air Force", 6.0, "Nike",90.0, "The original Nike Air Force One.", R.drawable.airforce1),
         Shoe("Stan Smith", 7.5, "Adidas", 50.0, "The bestselling Stan Smith shoes.", R.drawable.stansmith),
@@ -25,6 +25,11 @@ class ShoeListViewModel: ViewModel() {
     )
 
     init {
+        _shoeList.value = allShoes
+    }
+
+    fun onSave(shoe: Shoe) {
+        allShoes.add(shoe)
         _shoeList.value = allShoes
     }
 

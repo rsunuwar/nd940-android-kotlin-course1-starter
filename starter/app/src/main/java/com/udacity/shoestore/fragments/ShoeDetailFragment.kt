@@ -31,21 +31,38 @@ class ShoeDetailFragment : Fragment() {
 
         // set arguments to the view
         val arguments = ShoeDetailFragmentArgs.fromBundle(requireArguments())
-        if (!arguments.isNew) {
+        val isNew = arguments.isNew
 
+        if (!isNew) {
             arguments.shoe?.let { shoe ->
                 binding.shoe = shoe
                 binding.imageView.setImageResource(shoe.image)
             }
+            binding.buttonSave.text = "OK"
+        } else {
+            binding.textViewPrice.setText("")
+            binding.textViewSize.setText("")
         }
 
-        shoeListViewModel = ViewModelProvider(this).get(ShoeListViewModel::class.java)
+        shoeListViewModel = ViewModelProvider(requireActivity()).get(ShoeListViewModel::class.java)
 
         binding.buttonCancel.setOnClickListener {
             findNavController().navigate(ShoeDetailFragmentDirections.actionShoeDetailFragmentToShoeListFragment())
         }
 
         binding.buttonSave.setOnClickListener {
+
+            if (isNew) {
+                val shoe = Shoe(
+                    name = binding.textViewName.text.toString(),
+                    company = binding.textViewCompany.text.toString(),
+                    price = binding.textViewPrice.text.toString().toDouble(),
+                    size = binding.textViewSize.text.toString().toDouble(),
+                    description = binding.textViewDescription.text.toString()
+                )
+                shoeListViewModel.onSave(shoe)
+            }
+
             findNavController().navigate(ShoeDetailFragmentDirections.actionShoeDetailFragmentToShoeListFragment())
         }
 

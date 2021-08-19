@@ -11,7 +11,8 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
+import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.Observer
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.NavigationUI
@@ -24,7 +25,7 @@ import com.udacity.shoestore.models.ShoeListViewModel
  */
 class ShoeListFragment : Fragment() {
 
-    private lateinit var shoeListViewModel: ShoeListViewModel
+    private val shoeListViewModel: ShoeListViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -34,28 +35,10 @@ class ShoeListFragment : Fragment() {
         val binding: FragmentShoeListBinding =
             DataBindingUtil.inflate(inflater, R.layout.fragment_shoe_list, container, false)
 
-        shoeListViewModel = ViewModelProvider(this).get(ShoeListViewModel::class.java)
+        //shoeListViewModel = ViewModelProvider(this).get(ShoeListViewModel::class.java)
 
         val layoutParams = LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 100)
         layoutParams.setMargins(30, 10, 15, 10)
-
-        // add all shoes
-        for (shoe in shoeListViewModel.shoeList.value!!) {
-
-            val textView = TextView(context)
-            textView.layoutParams = layoutParams
-            textView.text = shoe.name
-            textView.textSize = 20.0F
-            textView.setOnClickListener {
-                findNavController().navigate(
-                    ShoeListFragmentDirections.actionShoeListFragmentToShoeDetailFragment(
-                        isNew = false,
-                        shoe = shoe
-                    )
-                )
-            }
-            binding.shoeItems.addView(textView)
-        }
 
         binding.floatingActionButton.setOnClickListener {
             findNavController().navigate(
@@ -65,6 +48,25 @@ class ShoeListFragment : Fragment() {
                 )
             )
         }
+
+        shoeListViewModel.shoeList.observe(this, Observer { shoeList ->
+
+            shoeList.forEach { shoe ->
+                val textView = TextView(context)
+                textView.layoutParams = layoutParams
+                textView.text = shoe.name
+                textView.textSize = 20.0F
+                textView.setOnClickListener {
+                    findNavController().navigate(
+                        ShoeListFragmentDirections.actionShoeListFragmentToShoeDetailFragment(
+                            isNew = false,
+                            shoe = shoe
+                        )
+                    )
+                }
+                binding.shoeItems.addView(textView)
+            }
+        })
 
         setHasOptionsMenu(true)
         return binding.root
